@@ -1,0 +1,19 @@
+.encryptedKey.json
+# vscode
+.vscode
+
+# hardhat
+artifacts
+cache
+deployments
+node_modules
+coverage
+coverage.json
+typechain
+
+# don't push the environment vars!
+.env
+
+
+# lint/reports/
+gas-report.txt
