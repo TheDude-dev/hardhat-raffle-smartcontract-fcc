@@ -74,6 +74,7 @@ const { developmentsChains, networkConfig } = require("../../helper-hardhat-conf
                   await raffle.enterRaffle({ value: raffleEntranceFee })
                   await network.provider.send("evm_increaseTime", [interval.toNumber() + 1])
                   await network.provider.send("evm_mine", [])
+                  // Sending a blank bytes object
                   await raffle.performUpkeep([])
                   const { upkeepNeeded } = await raffle.callStatic.checkUpkeep([])
                   const raffleState = await raffle.getRaffleState()
