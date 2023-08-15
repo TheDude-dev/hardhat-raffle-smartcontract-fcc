@@ -111,6 +111,8 @@ const { developmentsChains, networkConfig } = require("../../helper-hardhat-conf
               it("reverts when checkupkeep is false", async () => {
                   await expect(raffle.performUpkeep([])).to.be.revertedWith(
                       "Raffle__UpkeepNotNeeded"
+                      // We could have it expect the values passed to it
+                      //by using `Raffle__UpkeepNotNeeded(params)`
                   )
               })
 
