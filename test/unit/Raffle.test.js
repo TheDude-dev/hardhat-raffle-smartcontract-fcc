@@ -62,8 +62,10 @@ const { developmentsChains, networkConfig } = require("../../helper-hardhat-conf
 
           describe("checkUpkeep", function () {
               it("returns false if people haven't sent any ETH", async () => {
+                  // Avoid us to wait 30 minutes to test our contract, hardhat time travel
                   await network.provider.send("evm_increaseTime", [interval.toNumber() + 1])
                   await network.provider.send("evm_mine", [])
+                  // This how you get the params the function returns if it's not a getFunction
                   const { upkeepNeeded } = await raffle.callStatic.checkUpkeep([])
                   assert(!upkeepNeeded)
               })
